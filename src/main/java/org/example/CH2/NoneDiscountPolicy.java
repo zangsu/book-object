@@ -1,6 +1,6 @@
 package org.example.CH2;
 
-public class NoneDefaultDiscountPolicy implements DiscountPolicy {
+public class NoneDiscountPolicy implements DiscountPolicy {
     @Override
     public Money calculateDiscountAmount(Screening screening) {
         return Money.ZERO;

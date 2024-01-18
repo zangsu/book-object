@@ -15,6 +15,10 @@ public class Movie {
         this.defaultDiscountPolicy = defaultDiscountPolicy;
     }
 
+    public void changeDiscountPolicy(DefaultDiscountPolicy discountPolicy) {
+        this.defaultDiscountPolicy = discountPolicy;
+    }
+
     public Money getFee() {
         return fee;
     }
