@@ -1,5 +1,7 @@
 package org.example.CH2;
 
+import org.example.CH4.DOP.Customer;
+
 public class Reservation {
     private Customer customer;
     private Screening screening;
