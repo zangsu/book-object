@@ -8,47 +8,28 @@ public class DiscountCondition {
 
     private int sequence;
 
-    private DayOfWeek day;
+    private DayOfWeek dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
 
-    public void setType(DiscountConditionType type) {
-        this.type = type;
+    public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time) {
+        if (type != DiscountConditionType.PERIOD) {
+            throw new IllegalArgumentException();
+        }
+
+        return this.dayOfWeek.equals(dayOfWeek)
+                && !this.startTime.isAfter(time)
+                && !this.endTime.isBefore(time);
     }
 
-    public void setSequence(int sequence) {
-        this.sequence = sequence;
-    }
-
-    public void setDay(DayOfWeek day) {
-        this.day = day;
-    }
-
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
+    public boolean isDiscountable(int sequence) {
+        if (type != DiscountConditionType.SEQUENCE) {
+            throw new IllegalArgumentException();
+        }
+        return this.sequence == sequence;
     }
 
     public DiscountConditionType getType() {
         return type;
-    }
-
-    public int getSequence() {
-        return sequence;
-    }
-
-    public DayOfWeek getDayOfWeek() {
-        return day;
-    }
-
-    public LocalTime getStartTime() {
-        return startTime;
-    }
-
-    public LocalTime getEndTime() {
-        return endTime;
     }
 }
